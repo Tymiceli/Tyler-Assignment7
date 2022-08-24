@@ -60,7 +60,7 @@ class CustomArrayListTest {
 
 		Integer expectedItem = sut.get(19);
 
-		assertEquals(expectedItem, 20);
+		assertEquals(20, expectedItem);
 
 	}
 
@@ -70,8 +70,11 @@ class CustomArrayListTest {
 		sut.add(0, -5);
 
 		Integer expectedItem = sut.get(0);
+		Integer expectedItem1 = sut.get(1);
 
 		assertEquals(-5, expectedItem);
+		assertEquals(1, expectedItem1);
+		
 	}
 
 	@Test
@@ -99,6 +102,7 @@ class CustomArrayListTest {
 		assertEquals(10, removedItem);
 		assertEquals(19, sut.getSize());
 		assertEquals(1, sut.get(0));
+		
 		
 	}
 	

@@ -3,10 +3,26 @@ package com.coderscampus.arraylist;
 public class CustomArrayListApplication {
 
 	public static void main(String[] args) {
+		
+		example3();
+//		System.out.println("");		
+//		example2();
+//		System.out.println("");
+//		example1();
+	}
 
-		example2();
-System.out.println("");
-		example1();
+	private static void example3() {
+		CustomList<Integer> numbersList = new CustomArrayList<>();
+		for (int i = 0; i < 20; i++) {
+			numbersList.add(i, i);
+		}
+		numbersList.add(5, 14);
+		
+		for (int i = 0; i < 20; i++) {
+			System.out.println(numbersList.get(i));
+			
+		}
+		
 	}
 
 	private static void example2() {
@@ -27,7 +43,7 @@ System.out.println("");
 		CustomList<Integer> numbers = new CustomArrayList<>();
 
 		// Add objects to CustomArrayList
-		for (int i = 1; i <= 100; i++) {
+		for (int i = 1; i <= 10; i++) {
 			numbers.add(i);
 		}
 
@@ -37,7 +53,7 @@ System.out.println("");
 
 		}
 		System.out.println(numbers.getSize());
-		System.out.println(numbers.get(41));
+		System.out.println(numbers.get(9));
 	}
 
 }
