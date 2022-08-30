@@ -3,12 +3,25 @@ package com.coderscampus.arraylist;
 public class CustomArrayListApplication {
 
 	public static void main(String[] args) {
-		
-		example3();
+		example4();
+//		example3();
 //		System.out.println("");		
 //		example2();
 //		System.out.println("");
 //		example1();
+	}
+	
+	private static void example4() {
+		CustomList<Integer> numbersList = new CustomArrayList<>();
+		for (int i = 0; i < 20; i++) {
+			numbersList.add(i, i);
+		}
+		numbersList.add(1, 1000);
+		for (int i = 0; i < 20; i++) {
+			System.out.println(numbersList.get(i));
+			
+		}
+		
 	}
 
 	private static void example3() {

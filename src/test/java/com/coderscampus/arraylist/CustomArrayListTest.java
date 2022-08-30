@@ -73,7 +73,7 @@ class CustomArrayListTest {
 		Integer expectedItem1 = sut.get(1);
 
 		assertEquals(-5, expectedItem);
-		assertEquals(1, expectedItem1);
+		assertEquals(2, expectedItem1);
 		
 	}
 
