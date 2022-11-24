@@ -4,11 +4,11 @@ public class CustomArrayListApplication {
 
 	public static void main(String[] args) {
 		example4();
-//		example3();
-//		System.out.println("");		
-//		example2();
-//		System.out.println("");
-//		example1();
+		example3();
+		System.out.println("");		
+		example2();
+		System.out.println("");
+		example1();
 	}
 	
 	private static void example4() {

@@ -23,8 +23,7 @@ class CustomArrayListTest {
 	void before_each_test() {
 		sut = new CustomArrayList<>();
 		for (int i = 0; i < 20; i++) {
-			sut.add(i + 1);
-//			sut.add(i);
+			sut.add(i+1);
 		}
 	}
 
@@ -72,8 +71,13 @@ class CustomArrayListTest {
 		Integer expectedItem = sut.get(0);
 		Integer expectedItem1 = sut.get(1);
 
+		
+		System.out.println("Size: " + sut.getSize());
+		for (int j = 0; j<sut.getSize(); j++) {
+			System.out.println("Index " + j + ": " + sut.get(j));
+		}
 		assertEquals(-5, expectedItem);
-		assertEquals(2, expectedItem1);
+		assertEquals(1, expectedItem1);
 		
 	}
 
@@ -86,6 +90,11 @@ class CustomArrayListTest {
 		Integer expectedItem = sut.get(10);
 		Integer expectedItem2 = sut.get(20);
 		Integer expectedSize = sut.getSize();
+		
+		System.out.println("Size: " + sut.getSize());
+		for (int j = 0; j<sut.getSize(); j++) {
+			System.out.println("Index " + j + ": " + sut.get(j));
+		}
 				
 		assertEquals(expectedSize, 22);
 		assertEquals(expectedItem, 821);
