@@ -32,7 +32,7 @@ public class CustomArrayList<T> implements CustomList<T> {
 	@Override
 	public T get(int index) throws IndexOutOfBoundsException { // takes in a type (array type) and an integer
 																// (items.get(10))
-		if (index >= size) // if the integer you inputed as the index is greater
+		if (index > size) // if the integer you inputed as the index is greater
 			throw new IndexOutOfBoundsException(
 					"The index, " + index + ", is out of the bounds of the array with size " + size);
 
@@ -59,20 +59,30 @@ public class CustomArrayList<T> implements CustomList<T> {
 		return true;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public T remove(int index) throws IndexOutOfBoundsException {
 
 		if (index >= size) {
-			throw new IndexOutOfBoundsException("Index: " + index + ", is out of bounds");
-		}
-
+			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
+		}	
+		
 		T removedItem = (T) items[index];
-
-		for (int i = index; i < size - 1; i++) {
+		
+		for (int i = index; i < size; i++) {
+			if (i >= size - 1) {
+				items = doubleSizeOfBackingArray();
+				items[i] = items[i + 1];
+			} else {
 			items[i] = items[i + 1];
+			}
 		}
+		
 		size--;
+//		items[index] = null;
+		
 		return removedItem;
+		
 	}
 
 }

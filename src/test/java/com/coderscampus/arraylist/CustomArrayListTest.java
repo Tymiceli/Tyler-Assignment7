@@ -22,19 +22,23 @@ class CustomArrayListTest {
 	@BeforeEach
 	void before_each_test() {
 		sut = new CustomArrayList<>();
-		for (int i = 0; i < 20; i++) {
-			sut.add(i+1);
+		for (int i = 0; i < 10; i++) {
+			sut.add(i);
 		}
+		
+		
+		
 	}
 
 	@Test
 	void should_return_size() {
-
 		// act
-		Integer expectedSize = sut.getSize();
-
+		sut.remove(9);
+		sut.add(1000);
+		sut.add(6, 1001);
+		sut.remove(8);
 		//assert
-		assertEquals(20, expectedSize);
+		assertEquals(10, sut.getSize());
 	}
 
 	@Test
@@ -42,25 +46,7 @@ class CustomArrayListTest {
 
 		Integer expectedItem = sut.get(5);
 
-		assertEquals(6, expectedItem);
-	}
-
-	@Test
-	void should_return_item_at_beginning_of_list() {
-		
-		Integer expectedItem = sut.get(0);
-
-		assertEquals(1, expectedItem);
-
-	}
-
-	@Test
-	void should_return_item_at_end_of_list() {
-
-		Integer expectedItem = sut.get(19);
-
-		assertEquals(20, expectedItem);
-
+		assertEquals(5, expectedItem);
 	}
 
 	@Test
@@ -77,7 +63,7 @@ class CustomArrayListTest {
 			System.out.println("Index " + j + ": " + sut.get(j));
 		}
 		assertEquals(-5, expectedItem);
-		assertEquals(1, expectedItem1);
+		assertEquals(0, expectedItem1);
 		
 	}
 
@@ -85,18 +71,19 @@ class CustomArrayListTest {
 	void should_add_item_at_middle_and_end_of_list() {
 
 		sut.add(10, 821);
-		sut.add(20, 420);
+		sut.add(11, 420);
 
 		Integer expectedItem = sut.get(10);
-		Integer expectedItem2 = sut.get(20);
+		Integer expectedItem2 = sut.get(11);
 		Integer expectedSize = sut.getSize();
 		
 		System.out.println("Size: " + sut.getSize());
+		
 		for (int j = 0; j<sut.getSize(); j++) {
 			System.out.println("Index " + j + ": " + sut.get(j));
 		}
 				
-		assertEquals(expectedSize, 22);
+		assertEquals(expectedSize, 12);
 		assertEquals(expectedItem, 821);
 		assertEquals(expectedItem2, 420);
 		
@@ -108,10 +95,14 @@ class CustomArrayListTest {
 		
 		Integer removedItem = sut.remove(9);
 		
-		assertEquals(10, removedItem);
-		assertEquals(19, sut.getSize());
-		assertEquals(1, sut.get(0));
+		assertEquals(9, removedItem);
+//		assertEquals(19, sut.getSize());
+		assertEquals(0, sut.get(0));
+//		assertEquals(20, sut.get(19));
 		
+		for (int j = 0; j<sut.getSize(); j++) {
+			System.out.println("Index " + j + ": " + sut.get(j));
+		}
 		
 	}
 	
@@ -119,10 +110,12 @@ class CustomArrayListTest {
 	void should_remove_from_beginning_of_list() {
 		Integer itemRemoved = sut.remove(0);
 
- 		assertEquals(1, itemRemoved);
- 		assertEquals(19, sut.getSize());
- 		assertEquals(2, sut.get(0));
- 		assertEquals(20, sut.get(sut.getSize()-1));
+ 		assertEquals(0, itemRemoved);
+ 		assertEquals(9, sut.getSize());
+ 		for (int j = 0; j<sut.getSize(); j++) {
+			System.out.println("Index " + j + ": " + sut.get(j));
+		}
+ 		assertEquals(1, sut.get(0));
 	}
 	
 	@Test
@@ -134,9 +127,9 @@ class CustomArrayListTest {
 
  		Integer itemRemoved = sut.remove(50000);
 
- 		assertEquals(49980, itemRemoved);
- 		assertEquals(100019, sut.getSize());
- 		assertEquals(1, sut.get(0));
+ 		assertEquals(49990, itemRemoved);
+ 		assertEquals(100009, sut.getSize());
+ 		assertEquals(0, sut.get(0));
  		assertEquals(99999, sut.get(sut.getSize()-1));
  	}
 	
